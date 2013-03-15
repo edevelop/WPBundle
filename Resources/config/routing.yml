@@ -1,0 +1,66 @@
+#TLBWP_index:
+#  pattern:  /
+#  defaults: { _controller: TLBWPBundle:WP:index }
+
+TLBWP_index:
+  pattern:  /
+  defaults: { _controller: TLBWPBundle:WP:obtenerPosts }
+
+TLBWP_obtener_post:
+  pattern:  /{anho}/{mes}/{dia}/{postSlug}
+  defaults: { _controller: TLBWPBundle:WP:obtenerPost }
+
+TLBWP_posts_por_categoria:
+  pattern:  /categoria/{categoriaSlug}
+  defaults: { _controller: TLBWPBundle:WP:postsPorCategoria }
+
+TLBWP_blog_login:
+  pattern:  /login
+  defaults: { _controller: TLBWPBundle:WP:blogLogin }
+
+
+
+#TLBWP_obtener_post:
+#  pattern:  /{postId}/{postSlug}
+#  defaults: { _controller: TLBWPBundle:WP:obtenerPost }
+
+
+
+
+
+
+
+TLBWP_get_comentarios:
+  pattern:  /comments/{idPost}
+  defaults: { _controller: TLBWPBundle:WP:obtenerComentarios }
+  
+TLBWP_nuevo_comentario:
+  pattern:  /comentarios/nuevo
+  defaults: {_controller: TLBWPBundle:WP:nuevoComentario }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+TLBWP_cabecera:
+  pattern: /cabeceraWp
+  defaults: { _controller: TLBWPBundle:WP:cabeceraWp }
+
+TLBWP_login:
+  pattern: /wplogin
+  defaults: {_controller: TLBWPBundle:WP:wpLogin}
+

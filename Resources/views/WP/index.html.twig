@@ -1,0 +1,31 @@
+{# src/TLB/WPBundle/Resources/views/WP/index.html.twig #}
+
+{% extends 'TLBWPBundle::layout.html.twig' %}
+
+
+{% block cuerpo %}
+	{% for tlbPost in tlbPosts %}
+		</br>
+		</br>
+		<h5><a href="{{ path('TLBWP_obtener_post', {'anho':tlbPost.anho,'mes':tlbPost.mes, 'dia':tlbPost.dia, 'postSlug':tlbPost.slug}) }}">{{ tlbPost.titulo }}</a></h5>
+		<hr>
+		<b>Autor: </b>{{ tlbPost.nombreautor }}</br>
+		<b>Fecha: </b>{{ tlbPost.fecha }}</br>
+		<b>Año: </b>{{ tlbPost.anho }}</br>
+		<b>Mes: </b>{{ tlbPost.mes }}</br>
+		<b>Día: </b>{{ tlbPost.dia }}</br>
+		<b>Hora: </b>{{ tlbPost.hora }}</br>
+		
+		<b>Número de comentarios:</b> {{ tlbPost.numeroComentarios  }}</br>
+		<b>categorias:</b>
+		<ul>
+			{% for nombreCategoria in tlbPost.nombrescategorias %}
+				<li>{{nombreCategoria}}</li>
+			{% endfor %}
+		</ul>
+		<p> {{ tlbPost.contenido | raw }}</p>
+		
+		
+		
+	{% endfor %}
+{% endblock %}

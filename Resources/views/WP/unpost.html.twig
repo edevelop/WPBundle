@@ -1,0 +1,30 @@
+{# src/TLB/WPBundle/Resources/views/WP/index.html.twig #}
+
+{% extends 'TLBWPBundle::layout.html.twig' %}
+
+
+{% block cuerpo %}
+	<article>
+		<h1>{{ tlbPost.titulo }}</h1>
+		<hr>
+		<p>número de comentarios: {{tlbPost.numeroComentarios }}</br>
+		{# <a href="#comentario">Deje un comentario</a> #}
+		
+		<a href="{{ path('TLBWP_nuevo_comentario', {'tlbPostId': tlbPost.idPost}) }}">Deje un comentario</a>
+		
+		<p>{{ tlbPost.contenido | raw }}</p>
+	</article>
+	<hr>
+	
+	{% block comentarios %}	
+		{{ include('TLBWPBundle:WP:comentarios.html.twig', {'comentarios':comentarios}) }}   
+	{%endblock %}	
+	
+	{% block nuevocomentario %} 
+		
+		 {{ include('TLBWPBundle:WP:nuevoComentario.html.twig', {'formulario':formulario}) }} 
+	
+	{% endblock %} 
+
+
+{% endblock %}

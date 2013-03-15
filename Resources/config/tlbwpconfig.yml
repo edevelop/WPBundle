@@ -1,0 +1,8 @@
+
+tlbwpconfiguration:
+  general:
+    rutabootstrap: '/../web/wordpress/'
+    wpbootstrap: 'wp-load.php'
+
+  articulos:
+    postsporpagina: 3

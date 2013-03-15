@@ -1,0 +1,15 @@
+{# listaCategorias #}
+
+<section>
+    <header>
+        <h3>Categorias</h3>
+    </header>
+    <ul>
+        {% for categoria in listaCategorias %}
+            {# <li>{{ categoria.category_nicename }}({{ categoria.count }}) </li> #} 
+        	<li><a href="{{ path( 'TLBWP_posts_por_categoria', {'categoriaSlug':categoria.slug} ) }}">{{ categoria.category_nicename }}({{ categoria.count }})</a></li> 
+        {% else %}
+            <p>No hay categorias</p>
+        {% endfor %}
+    </ul>
+</section>

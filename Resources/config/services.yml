@@ -1,0 +1,36 @@
+#    tlbwp.example.class: TLB\WPBundle\Example
+
+#    tlbwp.example:
+#        class: %tlbwp.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+parameters:
+  tlb_wp.class:                   TLB\WPBundle\Services\WPService
+  tlb_wp_posts.class:             TLB\WPBundle\Services\WPServicePosts
+  tlb_wp_posts_repository.class:  TLB\WPBundle\Entity\Repository\TLBPostRepository
+  tlb_wp_comments.class:          TLB\WPBundle\Services\WPServiceComments
+
+services:
+  tlb_wp:
+    class:  %tlb_wp.class%
+    arguments:
+      rootdir: %kernel.root_dir%
+
+  tlb_wp_posts:
+    class:  %tlb_wp_posts.class%
+    arguments:
+      tlbwp: @tlb_wp
+      #opcionesArticulos: %tlb_wp_posts.opciones_articulos%
+
+  tlb_wp_posts_repository:
+    class: %tlb_wp_posts_repository.class%
+    calls:
+      - [setWpService, [ @tlb_wp_posts ] ]
+
+  tlb_wp_comments:
+    class:  %tlb_wp_comments.class%
+    arguments:
+      postsService: @tlb_wp_posts    
+  
+  

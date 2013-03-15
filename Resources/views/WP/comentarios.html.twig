@@ -1,0 +1,16 @@
+{%  block comentarios%}
+	
+	{% if comentarios | length > 0 %}
+		<h3>Los comentarios</h1>
+		{% for comentario in comentarios %}
+			<b>Autor: </b>{{ comentario.comment_author }}</br>
+			<b>Fecha: </b>{{ comentario.comment_date }}</br>
+			<b>Correo electrónico: </b>{{ comentario.comment_author_email }}</br>
+			<b>Contenido: </b>{{ comentario.comment_content }}</br>
+			<hr>
+		{%endfor %}
+	{% else %}
+		<h3>No hay comentarios todavía.</h3>
+	{% endif %}
+{% endblock %}
+	

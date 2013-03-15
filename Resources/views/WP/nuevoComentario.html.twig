@@ -1,0 +1,12 @@
+{# src/TLB/WPBundle/Resources/views/WP/nuevoComentario.html.twig #}
+
+{% block nuevocomentario %}
+	<h2>Nuevo comentario</h2>
+	
+	{# <form action= "{{ path('TLBWP_obtener_post') }}" method="post" {{ form_enctype(formulario) }}> #}
+		<form action="{{ path('TLBWP_obtener_post', {'anho':tlbPost.anho,'mes':tlbPost.mes, 'dia':tlbPost.dia, 'postSlug':tlbPost.slug})}}" method="post" {{ form_enctype(formulario) }}>
+		{{ form_widget(formulario) }}
+	<input type="submit" />
+	
+	</form>
+{% endblock %}
