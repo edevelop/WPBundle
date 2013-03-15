@@ -60,7 +60,6 @@ class WPController extends Controller{
 	 */
 	public function postsPorCategoriaAction($categoriaSlug)
 	{
-		//comentarios para git
 		//Cargamos el servicio y el repositorio de los posts.
 		$this->wpServicioPosts = $this->get('tlb_wp_posts');
 		$em = $this->getDoctrine()->getManager();
